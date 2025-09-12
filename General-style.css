@@ -1,0 +1,197 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: #fdfcf7;
+  color: #040430;
+  line-height: 1.6;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 400; /* Regular */
+}
+
+header {
+  background: linear-gradient(90deg, #36a506, #99f612);
+  color: #fff;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size:14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+header h1 { font-size: 22px; font-weight:700; }
+nav a { color: #fff; text-decoration: none; margin-left: 12px; font-weight:700; transition:0.3s; }
+nav a:hover { color: #fef9f0; text-decoration: underline; }
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://www.raed.net/img?id=1423598") center/cover no-repeat;
+  text-align: center;
+  padding: 100px 20px 60px;
+  position: relative;
+  color: #fff;
+}
+.hero-text {
+  display: inline-block;
+  background: rgba(4,4,48,0.7);
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: #fffed0;
+  font-weight: 700;
+  max-width: 95%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.hero-text h2 { font-size:28px; margin-bottom:10px; color:#ffdd57; font-weight: 900; }
+.hero-text p { font-size:16px; font-weight: 400; }
+
+.marquee {
+  width: 100%;
+  background: #ffdd57;
+  color: #040430;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  font-weight: 700;
+  font-size:14px;
+}
+.marquee span {
+  display:inline-block;
+  padding-right:100%;
+  animation: marquee 15s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.container { width:95%; max-width:750px; margin:20px auto; background:#fff; padding:25px 20px; border-radius:15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+
+h2 { color: #36a506; margin:25px 0 15px; border-bottom: 3px solid #99f612; padding-bottom:6px; font-size:20px; font-weight: 800; }
+p { margin-bottom:15px; font-size:15px; font-weight: 400; }
+
+ul { list-style:none; padding-left:0; }
+li { margin-bottom:12px; display:flex; align-items:flex-start; font-size:15px; font-weight: 500; }
+li i { font-size:18px; color:#ffdd57; margin-left:10px; flex-shrink:0; }
+
+.btn {
+  display:inline-block;
+  margin:8px 5px;
+  padding:12px 22px;
+  background: #36a506;
+  color:#fff;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:700;
+  font-size:15px;
+  transition:0.3s;
+  box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+.btn:hover { background:#99f612; color:#040430; }
+
+.btn-register { background: #ffdd57; color:#040430; font-weight:700; }
+.btn-register:hover { background: #e6c83b; }
+
+.slider-container { position: relative; overflow: hidden; margin-top: 20px; border-radius:12px; }
+.testimonial { display:none; padding:15px; background:#fdf6e3; border-radius:12px; font-style: italic; box-shadow:0 3px 12px rgba(0,0,0,0.1); font-weight: 300; }
+.testimonial.active { display:block; }
+.slider-dots { text-align:center; margin-top:10px; }
+.dot { display:inline-block; width:10px; height:10px; margin:0 5px; background:#ccc; border-radius:50%; cursor:pointer; transition:0.3s; }
+.dot.active { background:#36a506; }
+
+/* Fixed FAQ styles for better toggle */
+.faq-item { margin-bottom:12px; }
+.faq-question {
+  background:#f0f0f0;
+  padding:14px;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:15px;
+  font-weight:700;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
+}
+.faq-question:hover { background-color: #e0e0e0; }
+.faq-answer {
+  background:#fafafa;
+  padding: 0 14px; /* Adjust padding for smooth animation */
+  max-height: 0;   /* Start hidden */
+  overflow: hidden; /* Hide overflow during animation */
+  border-radius:8px;
+  margin-top:6px;
+  font-size:15px;
+  line-height:1.5;
+  font-weight:400;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition */
+}
+.faq-answer.show {
+  max-height: 200px; /* Adjust based on expected content height */
+  padding: 14px;
+}
+.faq-question i { transition: transform 0.3s ease; }
+.faq-question.active i { transform: rotate(180deg); }
+
+.certificate-section img { max-width:100%; height:auto; border:5px solid #36a506; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+
+/* نموذج التسجيل */
+#registrationForm { background:#e9f8df; padding:20px; border-radius:15px; border:2px solid #ffdd57; box-shadow:0 4px 15px rgba(0,0,0,0.1); margin-top:25px; }
+#registrationForm h2 { margin-bottom:15px; color:#36a506; }
+#registrationForm input, #registrationForm select { width:100%; padding:10px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc; font-size:15px; font-weight: 400; }
+#registrationForm button { background:#36a506; color:#fff; font-weight:700; font-size:16px; width:100%; padding:12px; border:none; border-radius:10px; cursor:pointer; transition:0.3s; box-shadow:0 3px 12px rgba(0,0,0,0.2); }
+#registrationForm button:hover { background:#99f612; color:#040430; }
+
+.sticky-register-btn { position: fixed; bottom:15px; right:15px; z-index:1000; display:none; padding:12px 22px; font-size:15px; border-radius:10px; font-weight:700; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+
+/* New Modal for Contact Options */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-out;
+}
+.modal-content h3 { color: #040430; margin-bottom: 20px; font-size: 22px; }
+.modal-content p { margin-bottom: 25px; font-size: 16px; }
+.modal-btn {
+  display: block;
+  width: 90%;
+  padding: 12px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-btn i { margin-left: 10px; font-size: 20px; }
+.modal-whatsapp { background-color: #25D366; }
+.modal-whatsapp:hover { background-color: #1DA851; }
+.modal-whatsapp-business { background-color: #075E54; }
+.modal-whatsapp-business:hover { background-color: #044b41; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
