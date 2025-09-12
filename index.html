@@ -1,352 +1,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولد كود الدورات</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: "Tahoma", sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 20px;
-            direction: rtl;
-        }
-        .container {
-            width: 95%;
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-radius: 12px;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-        .form-group input[type="text"],
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-        .btn {
-            flex-grow: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #generateBtn {
-            background-color: #2ecc71;
-            color: #fff;
-        }
-        #generateBtn:hover {
-            background-color: #27ae60;
-        }
-        #copyBtn {
-            background-color: #f39c12;
-            color: #fff;
-            display: none; /* مخفي في البداية */
-        }
-        #copyBtn:hover {
-            background-color: #e67e22;
-        }
-        #outputCode {
-            margin-top: 30px;
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            font-family: 'Courier New', Courier, monospace;
-            direction: ltr;
-            line-height: 1.5;
-            display: none; /* مخفي في البداية */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17515401485"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17515401485');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الرئيسية - مؤسسة كن أنت</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  
+  <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1><i class="fas fa-tools"></i> مولد كود الدورات</h1>
-        <p style="text-align: center; color: #777;">املأ الحقول التالية وسنقوم بتوليد كود HTML الكامل لدورتك.</p>
-
-        <form id="courseForm">
-            <div class="form-group">
-                <label for="courseName"><i class="fas fa-heading"></i> اسم الدورة:</label>
-                <input type="text" id="courseName" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="fileName"><i class="fas fa-file"></i> اسم ملف الدورة (مثال: `diploma-graphic.html`):</label>
-                <input type="text" id="fileName" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="courseDescription"><i class="fas fa-align-justify"></i> وصف الدورة:</label>
-                <textarea id="courseDescription" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="features"><i class="fas fa-list-ul"></i> مميزات الدورة (اكتب كل ميزة في سطر منفصل):</label>
-                <textarea id="features" rows="4"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="traineeReviews"><i class="fas fa-comments"></i> آراء المتدربين (اكتب كل رأي في سطر منفصل):</label>
-                <textarea id="traineeReviews" rows="4"></textarea>
-            </div>
-
-            <div class="btn-group">
-                <button type="button" id="generateBtn" class="btn"><i class="fas fa-cogs"></i> توليد الكود</button>
-                <button type="button" id="copyBtn" class="btn"><i class="fas fa-copy"></i> نسخ الكود</button>
-            </div>
-        </form>
-
-        <div id="outputCode"></div>
+  <header>
+    <h1><i class="fas fa-seedling"></i> مؤسسة كن أنت</h1>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="courses.html">الدورات</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+  </header>
+  
+  <div class="hero" data-aos="fade-up">
+    <div class="hero-text">
+      <h2>مرحبًا بكم في مؤسسة كن أنت</h2>
+      <p>نُصنع جيلاً واعيًا، قادرًا على التغيير والبناء</p>
+      <a href="courses.html">📚 استعرض جميع الدورات</a>
     </div>
-
-    <script>
-        document.getElementById('generateBtn').addEventListener('click', function() {
-            const courseName = document.getElementById('courseName').value;
-            const fileName = document.getElementById('fileName').value;
-            const courseDescription = document.getElementById('courseDescription').value;
-            const featuresText = document.getElementById('features').value;
-            const reviewsText = document.getElementById('traineeReviews').value;
-
-            if (!courseName || !fileName || !courseDescription) {
-                alert('الرجاء ملء الحقول المطلوبة (اسم الدورة، اسم الملف، الوصف)');
-                return;
-            }
-
-            const features = featuresText.split('\n').map(item => `                <li data-aos="fade-right"><i class="fas fa-check-circle"></i> ${item.trim()}</li>`).join('\n');
-            const reviews = reviewsText.split('\n').map(item => `            <p>"${item.trim()}"</p>`).join('\n');
-            
-            const generatedCode = `<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${courseName} - مؤسسة كن أنت</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-    <style>
-        body {
-            font-family: "Tahoma", sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            background: #fff;
-            padding: 20px 30px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            font-size: 28px;
-        }
-        h2 {
-            color: #16a085;
-            margin-top: 20px;
-            font-size: 22px;
-        }
-        p {
-            font-size: 16px;
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            padding: 8px 0;
-            font-size: 15px;
-        }
-        ul li i {
-            color: #27ae60;
-            margin-left: 8px;
-        }
-        .highlight {
-            background: #eafaf1;
-            padding: 10px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border: 1px solid #c8e6c9;
-        }
-        .students {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-            justify-content: center;
-        }
-        .students button {
-            padding: 10px 15px;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .students button:hover {
-            opacity: 0.8;
-        }
-        .students button:nth-child(8n+1) { background-color: #1abc9c; }
-        .students button:nth-child(8n+2) { background-color: #3498db; }
-        /* Add other colors as needed */
-        .contact-buttons-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .whatsapp-row {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: #fff;
-            padding: 12px;
-            text-decoration: none;
-            border-radius: 8px;
-            flex-grow: 1;
-            text-align: center;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .whatsapp-btn:hover {
-            background-color: #128c7e;
-        }
-        .home-button, .back-button {
-            display: block;
-            margin: 20px auto 0;
-            padding: 12px;
-            background-color: #f39c12;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .home-button:hover, .back-button:hover {
-            background-color: #e67e22;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <a href="courses.html" class="back-button"><i class="fas fa-arrow-right"></i> العودة لقائمة الدورات</a>
-        <h1 data-aos="flip-up">${courseName}</h1>
-        <p data-aos="fade-up">
-            ${courseDescription}
-        </p>
-
-        <div class="highlight" data-aos="flip-up">
-            <h2 data-aos="flip-down">ما ستتعلمه:</h2>
-            <ul>
-${features}
-            </ul>
-        </div>
-        
-        <h2 data-aos="flip-up">🌟 آراء طلابنا:</h2>
-        <div class="students" data-aos="fade-up">
-${reviews}
-        </div>
-
-        <h2 data-aos="flip-up">📞 للتسجيل والاستفسار:</h2>
-        <div class="contact-buttons-container" data-aos="flip-down">
-            <div class="whatsapp-row">
-                <a href="https://forms.gle/6iCC7Z71ift61Mu5A" target="_blank" class="whatsapp-btn">
-                    <i class="fas fa-file-alt"></i> نموذج التسجيل
-                </a>
-                <a href="https://wa.me/967771901320" target="_blank" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> واتساب (1)
-                </a>
-            </div>
-            <p style="text-align: center; margin-top: 10px; font-weight: bold;">
-                📞 هاتف: <a href="tel:+967777612552" style="text-decoration: none; color: #333;">+967777612552</a>
-            </p>
-        </div>
+  </div>
+  
+  <div class="marquee">
+    <span>
+      📢 سجل الآن في الدورات التدريبية وابدأ رحلتك نحو التطوير الشخصي والمهني!  
+      ✨ مميزات مؤسسة كن أنت: مدربون خبراء – محتوى متجدد – تطبيق عملي – دعم مستمر – متابعة فردية – شهادات معتمدة – بيئة تعليمية محفزة.  
+      📘 أهم الدورات: حفظ القرآن الكريم بالسند المتصل – تثبيت القرآن الكريم – التجويد والقراءات – التفسير وعلوم القرآن – إدارة الأعمال – الأمن السيبراني – مهارات التواصل – صناعة العباقرة – تنمية المهارات – صيانة الحواسيب – التفكير الإبداعي – التسويق الرقمي – فنون الذاكرة الخارقة – الإسعافات الأولية.  
+      🎯 اغتنم الفرصة وكن جزءًا من رحلتنا نحو التميز!  
+    </span>
+  </div>
+  
+  <div class="section" id="about" data-aos="fade-right">
+    <h2>من نحن</h2>
+    <p style="text-align: center;">مؤسسة تدريبية رائدة تهدف إلى تقديم برامج نوعية في التعليم، التنمية البشرية، والعلوم الشرعية، لنساهم في بناء جيل مبدع وواعٍ.</p>
+  </div>
+  
+  <div class="section" data-aos="fade-left">
+    <h2>مميزاتنا</h2>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>مدربون خبراء</h3>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-globe"></i>
+        <h3>برامج حضورية وأونلاين</h3>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-book-open"></i>
+        <h3>تنوع الدورات</h3>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>أساليب تدريب مبتكرة</h3>
+      </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1200, once: true });
-    </script>
-</body>
-</html>`;
+  </div>
 
-            document.getElementById('outputCode').style.display = 'block';
-            document.getElementById('outputCode').innerText = generatedCode;
-            document.getElementById('copyBtn').style.display = 'block';
-        });
+  <div class="section" id="courses" data-aos="zoom-in">
+    <h2>أحدث الدورات</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><span class="course-title">📘 دورة تثبيت القرآن الكريم</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة التجويد والقراءات</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة التفسير وعلوم القرآن</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة إدارة الأعمال</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة الأمن السيبراني</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة مهارات التواصل</span></div>
+        <div class="swiper-slide"><span class="course-title">📘 دورة الإسعافات الأولية</span></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="courses.html" style="background:var(--secondary-color); color:var(--primary-color); padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">عرض جميع الدورات</a>
+    </p>
+  </div>
 
-        document.getElementById('copyBtn').addEventListener('click', function() {
-            const outputCode = document.getElementById('outputCode');
-            const range = document.createRange();
-            range.selectNode(outputCode);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            try {
-                const successful = document.execCommand('copy');
-                const msg = successful ? 'تم النسخ بنجاح!' : 'فشل النسخ.';
-                alert(msg);
-            } catch (err) {
-                console.error('فشل النسخ:', err);
-                alert('فشل نسخ الكود.');
-            }
-            window.getSelection().removeAllRanges();
-        });
-    </script>
+  <div class="section" data-aos="fade-up">
+    <h2>آراء طلابنا</h2>
+    <div class="slider-container">
+      <div class="testimonial active">"الدورة ساعدتني على التعبير عن أفكاري بثقة ووضوح." – ليان (اليمن)</div>
+      <div class="testimonial">"تعلمت الاستماع بشكل فعّال وفهم الآخرين بطريقة أعمق." – رامي (السعودية)</div>
+      <div class="testimonial">"التمارين العملية جعلتني أكثر قدرة على التواصل مع فريقي وزملائي." – سارة (مصر)</div>
+      <div class="testimonial">"الحمد لله، أصبحت أتعامل مع الصراعات بذكاء واحترافية." – زيد (الأردن)</div>
+      <div class="testimonial">"الدورة علمتني فنون الإقناع والتأثير الإيجابي على الآخرين." – هالة (العراق)</div>
+      <div class="testimonial">"تعلمت كيفية بناء علاقات متينة ومؤثرة في حياتي المهنية والشخصية." – عمر (المغرب)</div>
+      <div class="testimonial">"كانت التجربة رائعة وغيرت طريقة تفكيري في التعلم." – نجلاء (الجزائر)</div>
+      <div class="testimonial">"زاد تركيزي بشكل ملحوظ، وأصبحت أستثمر وقتي بشكل أفضل." – حسين (تونس)</div>
+      <div class="testimonial">"الدورة أهدتني أدوات عملية ساعدتني في تطوير نفسي." – فاطمة (سوريا)</div>
+      <div class="testimonial">"أصبحت أكثر قدرة على مواجهة ضغوط الحياة." – عادل (السودان)</div>
+      <div class="testimonial">"التدريب فتح لي آفاقًا جديدة في مجال عملي." – مها (فلسطين)</div>
+      <div class="testimonial">"تعلمت مهارات ساعدتني في دراستي الجامعية." – سامر (ليبيا)</div>
+      <div class="testimonial">"زاد طموحي بعد هذه الدورة، وأصبحت أرى مستقبلي بشكل أوضح." – ريم (الكويت)</div>
+      <div class="testimonial">"أكثر ما أعجبني هو الجانب العملي والتطبيق المباشر." – خالد (قطر)</div>
+      <div class="testimonial">"لم أتوقع أن أتعلم بهذه السرعة والسهولة." – دعاء (الإمارات)</div>
+      <div class="testimonial">"أصبحت أكثر انضباطًا وإيجابية في حياتي اليومية." – ياسر (البحرين)</div>
+      <div class="testimonial">"الدورة ساعدتني على تحسين تواصلي مع عائلتي وزملائي." – لينا (سلطنة عمان)</div>
+      <div class="testimonial">"شعرت بالفخر عندما كسرت حاجز النسيان وضعف الذاكرة." – مصطفى (لبنان)</div>
+      <div class="testimonial">"التدريب جعلني أؤمن أن التغيير ممكن في أي عمر." – سناء (موريتانيا)</div>
+      <div class="testimonial">"التجربة كانت مليئة بالتحديات والإنجازات." – إبراهيم (اليمن)</div>
+      <div class="testimonial">"شكرًا للقائمين على هذا البرنامج الرائع." – صفاء (السعودية)</div>
+      <div class="testimonial">"شخصيًا أصبحت أكثر ثقة في قدراتي." – ناصر (مصر)</div>
+      <div class="testimonial">"تعلمت أن النجاح يحتاج إلى صبر ومثابرة." – أماني (الأردن)</div>
+      <div class="testimonial">"التمارين العقلية غيرت نظرتي للحفظ والتذكر." – يوسف (العراق)</div>
+      <div class="testimonial">"أكثر شيء رائع هو روح الفريق والدعم المستمر." – آية (المغرب)</div>
+      <div class="testimonial">"شعرت أنني أصبحت شخصًا جديدًا بعد الدورة." – هيثم (الجزائر)</div>
+      <div class="testimonial">"تعلمت كيف أستغل وقتي بشكل صحيح." – سلوى (تونس)</div>
+      <div class="testimonial">"البرنامج منحني حافزًا للاستمرار نحو أهدافي." – محمود (سوريا)</div>
+      <div class="testimonial">"المدربون كانوا رائعين وملهمين." – جميلة (السودان)</div>
+      <div class="testimonial">"الدورة جعلتني أتحدى نفسي كل يوم." – بشير (فلسطين)</div>
+      <div class="testimonial">"أصبحت أكثر تنظيمًا في حياتي العملية." – هدى (ليبيا)</div>
+      <div class="testimonial">"لم أكن أتصور أنني قادر على الحفظ بهذه السرعة." – رائد (الكويت)</div>
+      <div class="testimonial">"تجربة غيرت حياتي إلى الأفضل." – بشرى (قطر)</div>
+      <div class="testimonial">"تعلمت أن الإرادة تصنع المعجزات." – مروان (الإمارات)</div>
+      <div class="testimonial">"أكثر شيء أحببته هو النتائج الملموسة." – سعاد (البحرين)</div>
+      <div class="testimonial">"أشعر أنني أقوى وأكثر ثقة من قبل." – فادي (سلطنة عمان)</div>
+      <div class="testimonial">"التجربة كانت مليئة بالإيجابية والتحفيز." – نور (لبنان)</div>
+      <div class="testimonial">"الدورة أضافت لي خبرات عملية في وقت قصير." – كريمة (موريتانيا)</div>
+      <div class="testimonial">"وجدت نفسي أتذكر التفاصيل بسرعة مدهشة." – زياد (اليمن)</div>
+      <div class="testimonial">"هذه التجربة تستحق كل دقيقة." – ندى (السعودية)</div>
+      <div class="testimonial">"أصبحت أنجز مهامي الدراسية بسرعة أكبر." – أحمد (مصر)</div>
+      <div class="testimonial">"زاد حماسي بعد أن رأيت التطور الكبير عندي." – غادة (الأردن)</div>
+      <div class="testimonial">"لمست فرقًا واضحًا في حياتي اليومية." – وسيم (العراق)</div>
+      <div class="testimonial">"أكثر شيء تعلمته هو الثقة بالنفس." – منى (المغرب)</div>
+      <div class="testimonial">"الدورة أعطتني دافعًا قويًا للنجاح." – طارق (الجزائر)</div>
+      <div class="testimonial">"أصبحت أتعامل مع التحديات بعقلية جديدة." – هناء (تونس)</div>
+      <div class="testimonial">"شعرت أنني تقدمت خطوات كبيرة في وقت قصير." – علي (سوريا)</div>
+      <div class="testimonial">"النتائج فاقت كل توقعاتي." – هالة (السودان)</div>
+      <div class="testimonial">"البرنامج مميز بكل المقاييس." – بلال (فلسطين)</div>
+      <div class="testimonial">"الدورة غيرت طريقة تفكيري في التعلم." – ريم (ليبيا)</div>
+      <div class="testimonial">"كانت البداية صعبة لكن النتيجة مذهلة." – أحمد (الكويت)</div>
+      <div class="testimonial">"تعلمت أن العقل لا يعرف المستحيل." – نجلاء (قطر)</div>
+      <div class="testimonial">"بفضل الله ثم الدورة أصبحت أفضل بكثير." – سيف (الإمارات)</div>
+      <div class="testimonial">"أصبحت أكثر صبرًا وإصرارًا بعد التدريب." – نورة (البحرين)</div>
+      <div class="testimonial">"المدربون والمتدربون كانوا مثل عائلة واحدة." – جلال (سلطنة عمان)</div>
+      <div class="testimonial">"استفدت من كل دقيقة في الدورة." – حنان (لبنان)</div>
+      <div class="testimonial">"شعرت أنني في بيئة محفزة جدًا." – رشا (موريتانيا)</div>
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+  
+  <div class="section contact" id="contact" data-aos="flip-up">
+    <h2>تواصل معنا</h2>
+    <a href="https://wa.me/967771901320"><i class="fab fa-whatsapp"></i> واتساب</a>
+    <a href="mailto:be.you.t2025@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
+    <a href="https://t.me/MTYE1"><i class="fab fa-telegram"></i> تيليجرام</a>
+  </div>
+  
+  <footer>
+    <p>© 2025 مؤسسة كن أنت للتدريب والتأهيل - جميع الحقوق محفوظة</p>
+  </footer>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="index-script.js"></script>
 </body>
 </html>
